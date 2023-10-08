@@ -1,0 +1,57 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Employees</title>
+{% endblock title %}
+
+{% block content %}
+    <h3 class="text-center mt-3">All employees list</h3>
+
+    <div class="d-flex justify-content-center my-5">
+        <ul class="pagination">
+         {% if employees.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ employees.previous_page_number }}">&laquo;</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="?page={{ employees.previous_page_number }}">{{ employees.previous_page_number }}</a></li>
+         {% endif %}
+
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">{{ employees.number }}</a>
+          </li>
+
+         {% if employees.has_next %}
+          <li class="page-item"><a class="page-link" href="?page={{ employees.next_page_number }}">{{ employees.next_page_number }}</a></li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ employees.next_page_number }}">&raquo;</a>
+          </li>
+         {% endif %}
+        </ul>
+    </div>
+
+    <div class="table_block">
+        <table class="table table-dark w-100 text-center table-striped mx-auto">
+          <thead>
+                <tr>
+                  <th>Full name</th>
+                  <th>Department</th>
+                  <th>Position</th>
+                  <th>Hire date</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for employee in employees %}
+                  <tr>
+                    <td>{{ employee.full_name }}</td>
+                    <td>{{ employee.department.name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.hire_date }}</td>
+                    <td>{{ employee.salary }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+    </div>
+{% endblock content %}

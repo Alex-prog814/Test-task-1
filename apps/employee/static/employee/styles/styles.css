@@ -1,0 +1,23 @@
+.pagination .page-item.active .page-link {
+    background-color: #212529;
+    border-color: black;
+    color: white;
+}
+
+.pagination .page-link {
+    color: black;
+}
+
+.pagination .page-link:hover {
+    background-color: #2C3034;
+    border-color: #2C3034;
+    color: white;
+}
+
+.table_block {
+    width: 75%;
+    height: 80vh;
+    overflow-y: auto;
+    margin: 0 auto 5%;
+    border-radius: 20px;
+}
