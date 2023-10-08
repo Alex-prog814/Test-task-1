@@ -1,0 +1,22 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Departments tree</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="text-center m-5">
+        <h3>Departments Tree</h3>
+        <span>Here you can see the structure of departments; to view department employees,</br>
+            just click on the department whose employees you are interested in</span>
+    </div>
+
+    <div id="svg-block">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <script>
+        const departmentTreeData = JSON.parse('{{ department_tree | escapejs }}');
+    </script>
+    <script src="{% static 'employee/script.js' %}" type="module"></script>
+{% endblock content %}
