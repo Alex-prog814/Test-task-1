@@ -29,7 +29,6 @@ def generate_employee():
     salary = random.randint(min_salary, max_salary)
     departments = Department.objects.exclude(name='Root')
     department = random.choice(departments)
-    # department = random.choice(Department.objects.all())
     return Employee(
         full_name=full_name,
         position=position,
