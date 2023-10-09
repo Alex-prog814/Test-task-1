@@ -52,7 +52,7 @@ def generate_departments():
 
 generate_departments()
 
-total_employees = 5000
+total_employees = 50000
 with transaction.atomic():
     for _ in range(total_employees):
         employee = generate_employee()
